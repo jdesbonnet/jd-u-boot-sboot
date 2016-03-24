@@ -89,8 +89,8 @@ void sha1_csum( const unsigned char *input, int ilen,
  * \param output   SHA-1 checksum result
  * \param chunk_sz watchdog triggering period (in bytes of input processed)
  */
-void sha1_csum_wd (const unsigned char *input, int ilen,
-		unsigned char output[20], unsigned int chunk_sz);
+void sha1_csum_wd (const unsigned char *input, unsigned int ilen,
+		unsigned char *output, unsigned int chunk_sz);
 
 /**
  * \brief	   Output = SHA-1( file contents )
@@ -111,8 +111,8 @@ int sha1_file( char *path, unsigned char output[20] );
  * \param output   HMAC-SHA-1 result
  */
 void sha1_hmac( const unsigned char *key, int keylen,
-		const unsigned char *input, int ilen,
-		unsigned char output[20] );
+		const unsigned char *input, unsigned int ilen,
+		unsigned char *output );
 
 void hmac_starts( sha1_context *ctx, const unsigned char *key, unsigned int len);
 void hmac_update( sha1_context *ctx, const unsigned char *data, unsigned int len);
